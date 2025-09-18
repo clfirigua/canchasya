@@ -16,6 +16,10 @@ export abstract class BaseRepositoryMongo<T extends Document> {
     return this.model.findById(id).exec();
   }
 
+  async findOne(filter: FilterQuery<T>): Promise<T | null> {
+    return this.model.findOne(filter).exec();
+  }
+
   async paginate(page: number, limit: number): Promise<T[]> {
     return this.model
       .find()

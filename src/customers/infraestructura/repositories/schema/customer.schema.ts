@@ -41,6 +41,12 @@ export class Customer {
 
   @Prop({ type: Date, default: null })
   updatedAt: Date;
+
+  @Prop({ type: Number })
+  identificationNumber: number;
+
+  @Prop({ enum: ['CC', 'NIT'], type: String })
+  typeOfDocument: string;
 }
 
 export type CustomerDocument = Customer & Document;

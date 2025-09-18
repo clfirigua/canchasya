@@ -48,5 +48,11 @@ export class CustomerDTO {
     @IsDate()
     @IsOptional()
     updatedAt?: Date;
+
+    @IsNumber()
+    identificationNumber:number
+
+    @IsString()
+    typeOfDocument: string;
 }
 
