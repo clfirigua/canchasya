@@ -20,6 +20,11 @@ export abstract class BaseRepositoryMongo<T extends Document> {
     return this.model.findOne(filter).exec();
   }
 
+  async exists(filter: FilterQuery<T>): Promise<boolean> {
+    const result = await this.model.exists(filter).exec();
+    return result !== null;
+  }
+
   async paginate(page: number, limit: number): Promise<T[]> {
     return this.model
       .find()

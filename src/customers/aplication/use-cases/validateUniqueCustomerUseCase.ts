@@ -4,7 +4,7 @@ export class ValidateUniqueCustomerUseCase {
     constructor(private readonly repository:CustomerRepository) {}
 
     async execute(identificationNumber: number) {
-        const customer = await this.repository.findOne({ identificationNumber });
-        return !customer;
+        const customer = await this.repository.exists({ identificationNumber });
+        return customer;
     }
 }

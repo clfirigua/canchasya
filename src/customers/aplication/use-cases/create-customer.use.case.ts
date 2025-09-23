@@ -1,7 +1,7 @@
 import { CustomerRepository } from "src/customers/domain/customer.respository";
 import { CustomerDTO } from "../dto/customer.dto";
 import { ValidateUniqueCustomerUseCase } from "./validateUniqueCustomerUseCase";
-import { BadRequestException, ConflictException } from "@nestjs/common";
+import { ConflictException } from "@nestjs/common";
 import { messagesCustomers } from "src/config/responses/responses.customers";
 
 export class CreateCustomerUseCase {
