@@ -12,7 +12,7 @@ export class CreateCustomerUseCase {
 
     async execute(data: CustomerDTO) {
         const isUnique = await this.validateUniqueCustomer.execute(data.identificationNumber);
-        if (!isUnique) {
+        if (isUnique) {
             throw new ConflictException(messagesCustomers.validateUniqueCustomer(data.identificationNumber));
         }
         return this.repository.save(data as any);

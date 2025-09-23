@@ -19,5 +19,6 @@ import { CreateUserUseCase } from './aplication/use-case/create.user.case';
             inject: ['UserRepository'],
         },
     ],
+    exports: ['UserRepository', MongooseModule],
 })
 export class UsersModule {}
