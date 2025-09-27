@@ -1,9 +1,6 @@
 import { IsBoolean, IsDate, IsMongoId, IsOptional, IsString, IsUrl } from "class-validator";
 
 export class UserDTO {
-    @IsMongoId()
-    @IsOptional()
-    id: string;
 
     @IsString()
     username: string;

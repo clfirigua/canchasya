@@ -4,6 +4,7 @@ import { UserSchema } from './infraestructura/repositories/schema/user.schema';
 import { UserController } from './infraestructura/controller/user.controller';
 import { UserRepositoryMongo } from './infraestructura/repositories/user.repository';
 import { CreateUserUseCase } from './aplication/use-case/create.user.case';
+import { UpdateUserCase } from './aplication/use-case/update.user.case';
 
 @Module({
     imports: [MongooseModule.forFeature([{ name: 'User', schema: UserSchema }])],
@@ -16,6 +17,11 @@ import { CreateUserUseCase } from './aplication/use-case/create.user.case';
         {
             provide: CreateUserUseCase,
             useFactory: (repo) => new CreateUserUseCase(repo),
+            inject: ['UserRepository'],
+        },
+        {
+            provide: UpdateUserCase,
+            useFactory: (repo) => new UpdateUserCase(repo),
             inject: ['UserRepository'],
         },
     ],
